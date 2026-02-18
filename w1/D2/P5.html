@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Image tag</title>
 </head>
 <body>
-    
+    <!-- Embedding images -->
+     <img src="kailasa.webp" alt="No image found" width="400" height="200">
+
+     <img src="beach.jpeg" alt="Image  of beach" loading="lazy">
+
+     <img src="sun.svg" alt="No image found" width="400" height="200">
+    <!--Image responsive -->
+     <img src="small.taj.jpeg" alt="Image of taj"
+     srcset="medium-taj.jpeg 400w, large-tag.jpeg  900w"
+     sizes="(max_width:400px) 50vw,(max_width:900px) 50vw, 900px"
+     >
 </body>
 </html>
