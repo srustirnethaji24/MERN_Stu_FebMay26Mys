@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute & Pseudo Class Selector</title>
+    <style>
+        /* Attribute Selector */
+        input[type="text"]{
+            border: 2px solid blueviolet;
+            padding: 5px;
+        }
+        /* Pseudo Class selector */
+        button:hover{
+            background-color: green;
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="This input is styled">
+    <input type="password" placeholder="This inputis not styled">
+    <button> Hover on me</button>
+</body>
+</html>
