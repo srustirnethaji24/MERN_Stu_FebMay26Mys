@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid Layouts</title>
+    <style>
+        .grid-pixels{
+            display: grid;
+            grid-template-columns: 100px 150px 200px;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .grid-percent{
+            display: grid;
+            grid-template-columns: 30% 40% 50%;
+            gap: 10px;
+        }
+        .grid-fr{
+             display: grid;
+            grid-template-columns: 1fr 2fr 3fr;
+            gap: 10px;
+            margin: 20px;
+        }
+        .item{ 
+            background-color: black;
+            color: aqua;
+            padding: 20PX;
+        }
+    </style>
+</head>
+<body>
+   <!-- fixed width column using pixels -->
+   <div class="grid-pixels">
+       <div class="item">100px</div>
+       <div class="item">150px</div>
+       <div class="item">200px</div>
+   </div> 
+   <!-- fixed width column using percentage -->
+   <div class="grid-percent">
+       <div class="item">30%</div>
+       <div class="item">40%</div>
+       <div class="item">50%</div>
+   </div> 
+   <!-- fixed width column using Fractional columns -->
+   <div class="grid-fr">
+       <div class="item">1fr</div>
+       <div class="item">2fr</div>
+       <div class="item">1fr</div>
+   </div> 
+</body>
+</html>

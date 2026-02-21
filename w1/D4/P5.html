@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layouts: Auto fit & Auto fill</title>
+    <style>
+        .grid-fr{
+            display: grid;
+            /*grid-template-columns: repeat(auto-fill,minmax(150px,1fr));*/
+            grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+            /*gap: 10px;*/
+            gap:10px;
+            column-span:10px;
+            margin: 10px;
+        }
+        .item{ 
+            background-color: rgb(181, 24, 24);
+            color: rgb(17, 0, 255);
+            padding: 20PX;
+        }
+    </style>
+</head>
+<body>
+   <!-- Auto fit & Auto fil -->
+   <div class="grid-fr">
+       <div class="item">1</div>
+       <div class="item">2</div>
+       <div class="item">3</div>
+       <div class="item">4</div>
+       <div class="item">5</div>
+       <div class="item">6</div>
+   </div> 
+</body>
+</html>
