@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard UI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 p-8">
+  <div class="bg-white p-6 rounded-lg shadow m-6 w-96">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-xl font-bold tracking-wide">
+        Notification Center
+      </h2>
+      <span class="inline-flex items-center bg-blue-100 text-blue-700 px-3 py-1 rounded-full">
+        3 New
+      </span>
+    </div>
+    <div class="bg-red-100 border-l-4 border-red-500 p-4 mb-3 rounded">
+      <h3 class="font-bold">Action Required</h3>
+      <p class="leading-relaxed">
+        Please update your payment details immediately.
+      </p>
+    </div>
+    <div class="bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded">
+      <h3 class="font-bold">Maintenance Notice</h3>
+      <p class="leading-relaxed">
+        System maintenance scheduled for tonight at 11 PM.
+      </p>
+    </div>
+    <div class="flex justify-between mt-4">
+      <button class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg shadow">
+        View All
+      </button>
+      <button class="border border-gray-500 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-100">
+        Dismiss
+      </button>
+    </div>
+  </div>
+  <div class="bg-white p-6 rounded-lg shadow m-6">
+    <div class="flex justify-between items-center mb-4">
+      <div class="text-center">
+        <p class="text-sm tracking-wide">Active Users</p>
+        <p class="text-xl font-bold">12,480</p>
+        <span class="inline-flex items-center bg-green-100 text-green-700 px-2 py-1 rounded-full text-sm">
+          Up
+        </span>
+      </div>
+      <div class="text-center">
+        <p class="text-sm tracking-wide">New Signups</p>
+        <p class="text-xl font-bold">1,240</p>
+        <span class="inline-flex items-center bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-sm">
+          Stable
+        </span>
+      </div>
+      <div class="text-center">
+        <p class="text-sm tracking-wide">Revenue</p>
+        <p class="text-xl font-bold">₹2,10,000</p>
+        <span class="inline-flex items-center bg-red-100 text-red-700 px-2 py-1 rounded-full text-sm">
+          Down
+        </span>
+      </div>
+      <button class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg shadow">
+        Download Report
+      </button>
+
+    </div>
+    <div class="bg-red-100 border-l-4 border-red-500 p-3 rounded">
+      <p class="leading-relaxed">
+        Revenue has dropped slightly this week. Please review.
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>
