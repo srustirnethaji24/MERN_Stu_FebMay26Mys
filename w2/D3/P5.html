@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamburger icon based menu</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <nav class="border rounded-b-xl ">
+        <div class="flex justify-between items-center px-4 h-16">
+            <div class="flex gap-8 items-center ">
+                <a href="#" class="font-bold text-lg">gola</a>
+                <ul class="flex gap-6 text-blue-700 hidden md:flex items-center">
+                    <li><a href="#" class="hover:text-black trasition">Home</a>
+                    </li>
+                    <li><a href="#" class="hover:text-black trasition">Features</a>
+                    </li>
+                    <li><a href="#" class="hover:text-black trasition">Contact</a></li>
+                </ul>
+            </div>
+            <div class="hidden md:flex items-center gap-3">
+                <a href="#" class="text-gray-700 hover:text-black transition">Login</a>
+            </div>
+            <button id="menubtn" class="md:hidden items-center justify-center rounded border hover:bg-gray-80
+                transition inline-flex" aria-label="Toggle Menu" aria-expanded="false" aria-controls="MobileMenu">
+            <span class="text-xl leading-none">☰</span>
+            </button>
+            </div>
+            <div id="MobileMenu" class="hidden md:hidden border-t">
+                <div class="px-6 py-4 space-y-6">
+                    <ul class="flec flex-col gap-4">
+                        <li><a href="#" class="block hover:text-black transition"></a>Home</li>
+                        <li><a href="#" class="block hover:text-black transition"></a>Featues</li>
+                        <li><a href="#" class="block hover:text-black transition">Contact</a></li>
+                    </ul>
+                    <div class="flex flex-col gap-3">
+                        <a href="#" class="block text-gray-600 hover:text-black transition"></a>
+                    </div>
+                </div>
+            </div>
+    </nav>
+    <script>
+        const menubtn = document.getElementById("menubtn");
+        const MobileMenu = document.getElementById("MobileMenu");
+        menubtn.addEventListener("click",()=>{
+            MobileMenu.classList.toggle("hidden");
+            MobileMenu.classList.toggle("block");
+            const expanded = menubtn.getAttribute("aria-expanded")==="true";
+            menubtn.setAttribute("aria-expanded",string(!expanded));
+        });
+    </script>
+</body>
+
+</html>
