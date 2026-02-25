@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srusti R N Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-pink-300">
+
+    <!-- Header -->
+    <header class="bg-yellow-400 text-red-600">
+        <nav class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between p-4">
+            <a href="#home" class="text-2xl font-bold">Supreetha C.R</a>
+            <ul class="flex space-x-6 mt-3 md:mt-0 font-semibold">
+                <li><a href="#home" class="hover:text-black">Home</a></li>
+                <li><a href="#about" class="hover:text-black">About</a></li>
+                <li><a href="#skills" class="hover:text-black">Skills</a></li>
+                <li><a href="#projects" class="hover:text-black">Projects</a></li>
+                <li><a href="#contact" class="hover:text-black">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="text-center py-16">
+        <h1 class="text-4xl font-bold mb-4">Srusti RN</h1>
+        <img src="Myphoto.jpg" alt="Profile Photo"
+            class="w-40 h-40 mx-auto rounded-full border-4 border-blue-400 mb-4">
+        <p class="text-lg">
+            Web Development and Data Analyst <br>
+            MERN Stack / DevOps
+        </p>
+        <a href="#contact"
+            class="inline-block mt-6 px-6 py-2 bg-pink-500 text-black font-semibold rounded-lg hover:bg-pink-400 transition">
+            Contact Me
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-aqua-200 bg-cyan-300 text-black py-12 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-4">About Me</h2>
+            <h3 class="text-xl font-semibold mb-2">Full Stack Developer</h3>
+            <p class="mb-4">
+                Experience in web development and hosting.
+                Specialized in Finance-Domain projects.
+            </p>
+            <div class="flex space-x-4">
+                <span class="bg-purple-400 px-3 py-1 rounded-full text-white text-sm">
+                    Backend: NodeJS
+                </span>
+                <span class="bg-purple-400 px-3 py-1 rounded-full text-white text-sm">
+                    DB: Optimization
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="bg-red-300 text-black py-12 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-3xl font-bold mb-6">My Skills</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h4 class="text-xl font-semibold mb-2">MERN Stack</h4>
+                    <p>ReactJS, NodeJS, ExpressJS, MongoDB</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-12 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h3 class="text-3xl font-bold mb-6">My Projects</h3>
+
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg mb-6">
+                <h4 class="text-xl font-semibold mb-2">Gola</h4>
+                <p class="text-sm mb-4">
+                    Skin Cancer detection using YOLOv8 and CNN Algorithm.
+                    Enhanced CNN model accuracy for dataset imbalance.
+                </p>
+                <a href="https://www.gola.com/" target="_black"
+                    class="px-4 py-2 bg-pink-500 text-black rounded hover:bg-pink-400">
+                    View Project
+                </a>
+            </div>
+
+            <!-- Table -->
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-red-700 text-white rounded-lg">
+                    <thead>
+                        <tr class="bg-gray-900">
+                            <th class="px-4 py-2">Project</th>
+                            <th class="px-4 py-2">Technology 1</th>
+                            <th class="px-4 py-2">Technology 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center">
+                            <td class="px-4 py-2">AWS Hosting</td>
+                            <td class="px-4 py-2">MERN</td>
+                            <td class="px-4 py-2">Redis</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="bg-gray-900 py-12 px-6">
+        <div class="max-w-xl mx-auto">
+            <h3 class="text-3xl font-bold mb-6 text-center">Contact Me</h3>
+
+            <form class="bg-gray-800 p-6 rounded-lg shadow-lg space-y-4">
+                <div>
+                    <label class="block mb-1">Name</label>
+                    <input type="text" placeholder="Your Name"
+                        class="w-full px-4 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-pink-500">
+                </div>
+
+                <div>
+                    <label class="block mb-1">Email</label>
+                    <input type="email" placeholder="Your Email"
+                        class="w-full px-4 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-pink-500">
+                </div>
+
+                <div>
+                    <label class="block mb-1">Job Type</label>
+                    <select
+                        class="w-full px-4 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <option>FTE</option>
+                        <option>Consultant</option>
+                    </select>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-pink-500 text-black py-2 rounded-lg font-semibold hover:bg-pink-400 transition">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>
