@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal overlay</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <!-- modal overlay positioning (fixed + inset-0) -->
+    <main class="max-w-4xl mx-auto p-6 space-y-8">
+        <section class="border rounded p-6 space-y-4">
+            <h2>Modal Demo</h2>
+
+            <div class="overflow-auto h-72 border rounded p-4">
+                <div class="space-y-3">
+                    <p>Content behind a Modal</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting
+                        industry</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to make a type specimen book</p>
+                    </p>
+                </div>
+            </div>
+            <div class="fixed inset-0 border border-dashed pointer-events-none">
+                <div class="absolute top-4 left-4 border rounded px-3 py-2">
+                    overlay: fixed insert-0
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
