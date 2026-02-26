@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlay: dim background</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <main class="max-w-4xl mx-auto p-6 space-y-8">
+        <h1 class="text-2xl font-bold">Overlay text background</h1>
+            <section class="border rounded p-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="h-32 rounded bg-[linear-gradient(135deg,#4cb2b7,#6e0569)]">
+                        card 1
+                    </div>
+                     <div class="h-32 rounded bg-[linear-gradient(135deg,#4cb2b5,#6e0500)]">
+                        card 2
+                    </div>
+                    <p class="mt-4 text-lg" >This is the content behind Overlay.</p>
+                </div>
+            </section>
+            <div id="overlay" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-lg">
+                 <div class="w-[min(520px,92vw)] bg-white rounded p-6 shadow-lg">
+                    <h2 class="text-lg font-bold">My Modal Window</h2>
+                    <p class="text-sm mt-2">Here is my second window that I created.</p>
+                    <div class="mt-6 flex justify-end">
+                         <button id="closeBtn" class="px-4 py-2 rounded border hover:bg-red-50 transition">Close</button>
+                    </div>
+                 </div>
+            </div>
+    </main>
+    <!--script>
+        const Close = document.getElementById("Close");
+        closeBtn.addEventListener("click",()=>{
+            overlay.classList.toggle("hidden");
+            overlay.classList.toggle("block");
+            const expanded = close.getAttribute("aria-expanded")==="true";
+            closeBtn.setAttribute("aria-expanded",string(!expanded));
+        });
+    </script -->
+    <script> 
+        const overlay = document.getElementById('overlay');
+        document.getElementById('closeBtn').addEventListener('click',()=>{
+            overlay.classList.remove('flex');
+            overlay.classList.add('hidden');
+         });
+
+         //click outside of Modal to close it //
+         overlay.addEventListener('click',(e)=>{
+            if(e.target === overlay){
+                overlay.classList.remove('flex');
+                overlay.classList.add('hidden');
+            }
+         });
+    </script>
+</body>
+</html>
