@@ -1,4 +1,4 @@
-// // Conditional statements
+// // Conditional statements.
 let age =21;
 if(age<13){
    console.log("Child");
