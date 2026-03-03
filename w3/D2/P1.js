@@ -1,4 +1,4 @@
-//Arithmetic Operators
+//Arithmetic Operators.
 console.log("Arithmetic Operators");
 const a=2,b=5;
 let c=0;
