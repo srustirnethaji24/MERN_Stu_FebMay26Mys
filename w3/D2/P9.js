@@ -1,4 +1,4 @@
-// IIFE
+// IIFE.
 //without parameters
 (function(){
     console.log("Basic IIFE executed Immediately");
