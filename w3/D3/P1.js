@@ -7,6 +7,7 @@ for(let i=0;i<5;i++){ //forward loop
 for(let i=6;i>0;i--){ //backward loop
     console.log("i",i);
 }
+//this is another source
 // Nested for loop
 for(let i=1;i<=3;i++){
     for(let j=1;j<=2;j++){
