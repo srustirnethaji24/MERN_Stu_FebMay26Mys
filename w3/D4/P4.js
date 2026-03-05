@@ -1,4 +1,4 @@
-//filter method
+//Filter method
 let marks = [85, 92, 78, 60, 95, 40,90];
 let passed = marks.filter(mark => mark >= 75);
 console.log("Marks: ", marks);
