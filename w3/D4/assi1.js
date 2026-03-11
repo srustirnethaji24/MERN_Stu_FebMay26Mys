@@ -18,4 +18,4 @@ let pendingIds = pending.map(ticket => ticket.id);
 console.log(currentTicket);
 console.log(droppedticket);
 console.log(pending);
-console.log(pendingIds)
+console.log(pendingIds);
