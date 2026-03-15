@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            background: #333;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .profile-img {
+            width: 150px;
+            border-radius: 50%;
+        }
+
+        .skills-grid {
+            display: flex;
+            gap: 20px;
+        }
+
+        .skills-card {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a href="#home">T R Mythri</a>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Home -->
+<section id="home" class="hero">
+    <h1>Srusti RN</h1>
+    <img src="myphoto.jpg" alt="My photo" class="profile-img">
+    <p>Software Developer <br> MERN Stack | DevOps</p>
+    <a href="#contact">Contact Me</a>
+</section>
+
+<!-- About -->
+<section id="about">
+    <h2>About Me</h2>
+
+    <article>
+        <h3>Full Stack Developer</h3>
+
+        <p>
+            Experienced in web development and hosting.
+            Specialized in Finance Domain projects.
+        </p>
+
+        <div>
+            <span>Backend: NodeJS</span>
+            <span>DB Optimization</span>
+        </div>
+    </article>
+
+</section>
+
+<!-- Skills -->
+<section id="skills">
+
+    <h2>My Skills</h2>
+
+    <div class="skills-grid">
+
+        <div class="skills-card">
+            <h4>MERN Stack</h4>
+            <p>ReactJS, NodeJS, ExpressJS, MongoDB</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Projects -->
+<section id="projects">
+
+    <h2>My Projects</h2>
+
+    <div>
+
+        <div>
+            <h4>Gola</h4>
+            <p>Rapid way to book a cab hassle free</p>
+            <a href="https://example.com" target="_blank">View</a>
+        </div>
+
+    </div>
+
+    <table border="1">
+
+        <thead>
+            <tr>
+                <th>Project</th>
+                <th colspan="2">Technology</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>AWS Hosting</td>
+                <td>MERN</td>
+                <td>Redis</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+</section>
+
+<!-- Contact -->
+<section id="contact">
+
+    <h2>Contact Me</h2>
+
+    <form>
+
+        <fieldset>
+
+            <legend>Contact Form</legend>
+
+            <label>Name</label>
+            <input type="text" required>
+
+            <br><br>
+
+            <label>Email</label>
+            <input type="email" required>
+
+            <br><br>
+
+            <select>
+                <option>FTE</option>
+                <option>Consultant</option>
+            </select>
+
+            <br><br>
+
+            <button type="submit">Send</button>
+
+        </fieldset>
+
+    </form>
+
+</section>
+
+<footer>
+    © 2026 T R Mythri
+</footer>
+
+</body>
+</html>
