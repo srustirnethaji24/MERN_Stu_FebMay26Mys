@@ -11,7 +11,7 @@ signupForm.addEventListener("input",function(event){
     // console.log(signupForm.elements.signupPassword.value);
     if(!password){
         message.textContent = "Password is required.";
-        message.style.color = "red";
+        message.style.color = "blue";
         signupPassword.focus();
         return;
     }
