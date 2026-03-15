@@ -1,4 +1,4 @@
-let tickets = [
+let ticketss= [
     {id: "T1", priority:"high",resolved:false},
     {id: "T2", priority:"medium",resolved:true},
     {id: "T3", priority:"low",resolved:false},
