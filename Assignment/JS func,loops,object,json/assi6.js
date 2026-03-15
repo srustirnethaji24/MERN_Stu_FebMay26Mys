@@ -2,7 +2,7 @@ function auditReport(reportJSON) {
     const report = JSON.parse(reportJSON);
 
     let okCount = 0;
-    let failCount = 0;
+    let failCount = .0;
 
     for (let module in report.modules) {
         if (report.modules[module] === "OK") {
