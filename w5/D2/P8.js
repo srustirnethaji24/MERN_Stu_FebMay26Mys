@@ -2,7 +2,7 @@
 console.log("Program started.");
 function getWelncomeMessage(){
     return new Promise (function(resolve){
-        setTimeout(() =>{
+        setTimeout(()=>{
           resolve("Welcome to Promises");
         },1000);
     });
