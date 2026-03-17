@@ -7,6 +7,13 @@ function ProcessStudent(name,score,callback,monkey){
     callback(name,score);
     monkey(name,score);
 }
+function showResult(name,score){
+    if(score >=70){
+        console.log(name+ " has passed.");
+    }else{
+        console.log(name+ " has failed."); 
+    }
+}
 function showGrade(name,score){
     if(score >=85){
         console.log("A+");
@@ -21,13 +28,7 @@ function showGrade(name,score){
         console.log("Grade: fail"); 
     }
 }
-function showResult(name,score){
-    if(score >=70){
-        console.log(name+ " has passed.");
-    }else{
-        console.log(name+ " has failed."); 
-    }
-}
+
 
 ProcessStudent("loki",86,showGrade,showResult);
 // ProcessStudent("loki",85,showGrade);
