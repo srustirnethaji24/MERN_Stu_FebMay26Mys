@@ -1,5 +1,5 @@
 // Chaining Promises with returned promises
-function getOrderId(){
+function getOrderId (){
     return new Promise(function(resolve){
         setTimeout(function(){
             resolve(501);
