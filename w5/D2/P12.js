@@ -2,7 +2,7 @@
 function validateLogin(){
     return new Promise(function(resolve){
         setTimeout(function(){
-            resolve("Login validated");
+            resolve("Login validated ");
         },400);
     });
 }
