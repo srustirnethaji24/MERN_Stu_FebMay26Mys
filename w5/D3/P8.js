@@ -1,4 +1,4 @@
-// Try catch finally asyn/await
+// Try catch finally asyn/await 
 
 function processPayment(isSucceeded){
     return new Promise(function(resolve,reject){
