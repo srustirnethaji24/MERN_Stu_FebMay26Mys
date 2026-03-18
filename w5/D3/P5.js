@@ -1,4 +1,4 @@
-// An async function always returns a promise
+// An async function always returns a promise 
 async function getStatusMessage() {
     return "Order is ready";
 }
