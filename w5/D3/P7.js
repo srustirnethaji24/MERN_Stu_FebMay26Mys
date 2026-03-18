@@ -1,4 +1,4 @@
-// Sequentail await vs parallel promise execution
+// Sequentail await vs parallel promise execution 
 function taskA(){
     return new Promise(function(resolve){
         setTimeout(function(){
