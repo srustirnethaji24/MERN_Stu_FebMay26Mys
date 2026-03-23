@@ -6,7 +6,7 @@ const path = require("path");
 const invoicePath = path.join("invoices","2026","invoice_001.txt");
 console.log("Built-in module result:",invoicePath);
 
-// To use third-party package/module 
+//To use third-party package/module 
 try{
     const _ = require("lodash");
     console.log("Third-party module example ");
