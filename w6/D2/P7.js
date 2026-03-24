@@ -1,9 +1,9 @@
 // setImmediate vs setTimeout
-console.log("Scheduling setTimeout and setImmediate.");
+console.log("Scheduling setTimeout and setImmediate");
 
 //callback timer
 setTimeout(() =>{
-    console.log("Timer callback grom  setTimeout.");
+    console.log("Timer callback grom  setTimeout");
 },0);
 
 //setImmediate callback 
