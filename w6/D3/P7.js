@@ -1,8 +1,8 @@
-// Introduction to buffers in NodeJS
+// Introduction to buffers in NodeJS 
 // A buffer storess raw bytes
 // Here we create buffer directly from a string
 
-const textBuffer = Buffer.from("Srusti ");
+const textBuffer = Buffer.from("Srusti");
 
 // The value in the buffer is the encod form the text
 console.log("Buffer object: ", textBuffer);
