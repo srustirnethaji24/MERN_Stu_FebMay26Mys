@@ -16,5 +16,5 @@ const server = http.createServer(function(req,res){
 
 //listen() binds the server to a port and starts accepting request
 server.listen(3000,function(){
-    console.log("Server is running at the http://localhost:3000");
+     console.log("Server is running at the http://localhost:3001");
 });
