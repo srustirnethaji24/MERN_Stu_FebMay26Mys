@@ -7,7 +7,7 @@ async function runPromiseBasedFileFlow() {
     const filepath = path.join(__dirname,"promises-note.txt");
 
     try{
-        await fs.writeFile(filepath,
+        await fs.appendFile(filepath,
             "written using fs/promises. This work with asnc/await"
         );
         console.log("file written using fs/promises");
