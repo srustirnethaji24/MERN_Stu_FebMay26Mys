@@ -4,10 +4,19 @@ const path =require("path");
 
 const filepath = path.join(__dirname,"async-note.txt");
 
+
+fs.appendFile( filepath,"This is writtn aysnchronously using writeFile().",
+    function(writeError){
+        if(writeError){
+            console.log("Write error: ",writeError.message);
+            return;
+        }
+        console.log("File content append.");
+    }
+); 
+
 //to write to a file
-fs.writeFile(
-    filepath,
-    "This is writtn aysnchronously using writeFile().",
+fs.writeFile( filepath,"This is writtn aysnchronously using writeFile().",
     function(writeError){
         if(writeError){
             console.log("Write error: ",writeError.message);
