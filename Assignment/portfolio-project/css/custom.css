@@ -1,0 +1,47 @@
+.dark-mode{
+    background-color: rgb(79, 143, 161);
+    color: white;
+}
+
+.dark-mode nav{
+    background-color: rgb(171, 39, 39);
+    /* color: white; */
+}
+
+.dark-mode section{
+    background-color: lightgreen;
+    color: white;
+}
+.dark-mode .bg-blue-100{
+    background-color: lightseagreen;
+    color: white;
+}
+.dark-mode .bg-white{
+    background-color: rgb(40, 40, 99);
+}
+.dark-mode .text-gray-700{
+    color:white
+}
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: #00ffcc;
+  z-index: 1000;
+}
+.nav-link.active {
+  color: #2563eb; /* Tailwind blue-600 */
+  border-bottom: 2px solid #2563eb;
+}
+#back-to-top {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#back-to-top.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
