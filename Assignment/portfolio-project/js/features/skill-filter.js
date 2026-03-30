@@ -18,7 +18,7 @@ function renderFilters(data) {
     categories.forEach(category => {
         const btn = document.createElement("button");
         btn.textContent = category;
-        btn.className = "px-4 py-2 bg-yellow-200 rounded hover:bg-green-400";
+        btn.className = "px-4 py-3 bg-yellow-200 rounded hover:bg-green-400";
 
         btn.addEventListener("click", () => {
             const filtered =
