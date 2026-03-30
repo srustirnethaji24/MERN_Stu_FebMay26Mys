@@ -1,0 +1,21 @@
+// Basics of ExpressJS - setup
+// npm init -y 
+// npm install express  
+
+// Input module of Express
+const express = require("express");
+
+// calling express() creates the main appln object 
+// This object is used to register routes and middleware
+const app = express();
+
+//app.get() handles GET requesis for a specific path
+app.get("/",function(req,res){
+    //res.send() send a response body and ends the request automaticaly
+    res.send("Hello from express server");
+});
+
+//listen() starts the server on a chosen port number
+app.listen(4000,function(){
+    console.log("Express server running at http://localhost:4000")
+});
