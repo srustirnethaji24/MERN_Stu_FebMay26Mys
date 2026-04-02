@@ -71,7 +71,8 @@ app.post("/login",function(req,res){
     res.json({
         success:true,
         message:"login successful",
-        accessToken:refreshToken
+        accessToken:accessToken,
+        refreshToken:refreshToken
     });
 });
 
@@ -121,3 +122,4 @@ app.listen(4000,function(){
     console.log("JWT demo server running @ http://localhost:4000");
 });
 //curl -X POST http://localhost:4000/login -H "Content-Type: application/json" -d "{\"email\":\"email@email.com\",\"password\":\"pass@123\"}"
+//curl -X POST http://localhost:4000/refresh -H "Content-Type: application/json" -d "{\"refreshToken\"}"
