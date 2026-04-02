@@ -13,7 +13,7 @@ const refreshSecretKey = "MyNewsecretekey";
 const refreshTokens = [];
 //authenticate access token
 function authentiacateAccessToken(req,res,next){
-    const authHeader = req.headers.authorisation;
+    const authHeader = req.headers.authorization;
     
     const token = authHeader && authHeader.split(" ")[1];
     if (!token) {
@@ -122,4 +122,5 @@ app.listen(4000,function(){
     console.log("JWT demo server running @ http://localhost:4000");
 });
 //curl -X POST http://localhost:4000/login -H "Content-Type: application/json" -d "{\"email\":\"email@email.com\",\"password\":\"pass@123\"}"
-//curl -X POST http://localhost:4000/refresh -H "Content-Type: application/json" -d "{\"refreshToken\"}"
+//curl -X POST http://localhost:4000/refresh -H "Content-Type: application/json" -d "{\"refreshToken\":\"\"}"
+//curl http://localhost:4000/me -H "Authorization:Bearer
