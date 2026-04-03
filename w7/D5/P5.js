@@ -23,7 +23,7 @@ app.get("/profile",function(req,res){
 });
 
 app.get("/admin",requireRole("admin"),function(req,res){
-    res.json({success: false, message:"Admin page",user:req.user});
+    res.json({success:true, message:"Admin page",user:req.user});
 });
 
 app.listen(4000, function () {
