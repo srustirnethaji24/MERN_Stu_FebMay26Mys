@@ -1,4 +1,4 @@
-// Basic RBAC
+// Basic of RBAC
 const routePermission = {"/admin":["admin"],"/reports":["admin","manager"],"/profile":["admin","manager","user"]};
 
 function canAccess(route ,role){
