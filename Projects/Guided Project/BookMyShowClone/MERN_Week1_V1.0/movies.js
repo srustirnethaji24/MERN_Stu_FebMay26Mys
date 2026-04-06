@@ -21,7 +21,7 @@ const movies = [
         ]
     },
     {
-        id:1,
+        id:3,
         title:"Hayagreeva",
         showtimes:[
             {time: "11:00 AM",seatsAvailable: 100},
