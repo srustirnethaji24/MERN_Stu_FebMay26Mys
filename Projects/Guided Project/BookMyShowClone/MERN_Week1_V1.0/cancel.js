@@ -1,5 +1,5 @@
 // Cancel.js
-// To cancel the existing booking if exits
+// To cancel the existing booking if exits 
 const bookingEmitter = require("./events");
 const { getCurrentBooking, clearCurrentsBooking } = require("./booking");
 
