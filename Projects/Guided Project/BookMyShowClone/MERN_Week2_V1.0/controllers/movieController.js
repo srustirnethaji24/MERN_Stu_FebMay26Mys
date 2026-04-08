@@ -33,7 +33,7 @@ function getMovieById(req, res, next) {
     const movieId = Number(req.params.id);
     const movie = movies.find((m) => m.id === movieId);
     if (!movie) {
-        return next(new CustomError("movie not found", 404));
+        return next(new CustomError("Movie not found", 404));
     }
     res.status(200).json({
         sucess: true,
