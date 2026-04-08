@@ -1,4 +1,4 @@
-// Functions for movie handling are created 
+// Functions for movie handling are created  
 const movies = require("../data/movies");
 const CustomError = require("../utils/customError");
 
