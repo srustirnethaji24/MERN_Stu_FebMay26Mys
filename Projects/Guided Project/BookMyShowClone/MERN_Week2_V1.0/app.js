@@ -24,8 +24,7 @@ app.use(session({
         secure:false,
         httpOnly:true
     }
-})
-);
+}));
 
 app.use(loggerMiddleware);
 app.use("/",movieRoutes);
