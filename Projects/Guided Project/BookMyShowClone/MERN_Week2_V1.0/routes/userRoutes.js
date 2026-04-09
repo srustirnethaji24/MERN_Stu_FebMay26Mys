@@ -3,7 +3,7 @@ const express = require("express");
 const { authMiddleware } = require("../middleware/authMiddleware");
 const { bookings } = require("../controllers/bookingController");
 
-const router = express.router();
+const router = express.Router();
 
 // get bookings for a specific user id
 router.get("/:userId/bookings",authMiddleware,(req,res)=>{
