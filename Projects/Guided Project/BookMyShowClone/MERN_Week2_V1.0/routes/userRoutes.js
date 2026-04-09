@@ -1,0 +1,16 @@
+// Fetching the bookings based on UserId
+const express = require("express");
+const { authMiddleware } = require("../middleware/authMiddleware");
+const { bookings } = require("../controllers/bookingController");
+
+// get bookings for a specific user id
+router.get("/:userId/bookings",authMiddleware,(req,res)=>{
+    const userId = Number(req.params.userId);
+
+    const userBookings = bookings.filter((bookings)=> booking.userId === userId);
+    res.status(200).json({
+        success : true, count: userBookings.length, data:userBookings
+    });
+}); 
+
+module.exports = router;
