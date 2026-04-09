@@ -4,7 +4,7 @@ const CustomError = require("../utils/customError");
 
 const bookings = [];
 
-function bookingValidHandler(req, res, next) {
+function bookingValidationHandler(req, res, next) {
     const { movieId, showtimeId, seatCount } = req.body;
 
     if (!movieId || !showtimeId || !seatCount) {
@@ -71,5 +71,5 @@ function getMyBookings(req,res,next){
     }
 }
 module.exports = {
-    bookingValidHandler,createBooking,getAllBookings,getMyBookings
+    bookingValidationHandler,createBooking,getAllBookings,getMyBookings
 }
