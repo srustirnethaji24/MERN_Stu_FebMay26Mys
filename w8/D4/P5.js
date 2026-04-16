@@ -1,4 +1,4 @@
-// Generate and Verify OTP
+// Generate and Verified OTP
 const crypto = require("crypto");
 
 const otpStore = {};
