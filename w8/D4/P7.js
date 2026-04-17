@@ -7,6 +7,7 @@ function generateOTP(length = 6){
 }
 
 async function hashOTP(otp) {
+    // 10 indicated salt round it encrypts 2^10 times
     return await bcrypt.hash(otp,10);
 }
 
