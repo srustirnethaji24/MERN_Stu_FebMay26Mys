@@ -19,21 +19,20 @@ events.emit("sessionStarted", { name: "Guest" });
 
 function showMenu() {
     console.log(chalk.blue("\nWelcome To LinkedIn Clone Menu Page"));
-    console.log("1. Create profile");
-    console.log("2. View my profile");
-    console.log("3. Edit profile");
-    console.log("4. View Other Profiles");
-    console.log("5. Send Connection Request");
-    console.log("6. View Requests");
-    console.log("7. Accept / Reject Requests");
-    console.log("8. View Connections");
-    console.log("9. Create Post");
-    console.log("10. View Feed");
-    console.log("11. Like / Comment");
-    console.log("12. Exit");
-    console.log("13. Login profile");
+    console.log("1.Create profile");
+    console.log("2.View my profile");
+    console.log("3.Edit profile");
+    console.log("4.View Other Profiles");
+    console.log("5.Send Connection Request");
+    console.log("6.View Requests");
+    console.log("7.Accept / Reject Requests");
+    console.log("8.View Connections");
+    console.log("9.Create Post");
+    console.log("10.View Feed");
+    console.log("11.Like / Comment");
+    console.log("12.Exit");
+    console.log("13.Login profile");
 
-    // 🔹 ADDED: Validator wrapper (optional but included for full compliance)
     validator.validateInput(
         (cb) => rl.question("\nEnter your choice : ", cb),
         (input) => validator.isValidMenuOption(input, 13),
@@ -102,10 +101,8 @@ function handleChoice(choice) {
         default:
             console.log(chalk.red("Invalid choice"));
 
-            events.emit("operationFailed", "Invalid menu selection");
+            events.emit("OperationFailed","Invalid menu selection");
     }
-
     showMenu();
 }
-
 showMenu();
