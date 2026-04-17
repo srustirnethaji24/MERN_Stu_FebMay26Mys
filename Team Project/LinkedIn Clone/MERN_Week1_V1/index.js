@@ -14,6 +14,9 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
+
+events.emit("sessionStarted", { name: "Guest" });
+
 function showMenu() {
     console.log(chalk.blue("\nWelcome To LinkedIn Clone Menu Page"));
     console.log("1. Create profile");
@@ -30,9 +33,14 @@ function showMenu() {
     console.log("12. Exit");
     console.log("13. Login profile");
 
-    rl.question("\nEnter your choice : ", (choice) => {
-        handleChoice(choice);
-    });
+    // 🔹 ADDED: Validator wrapper (optional but included for full compliance)
+    validator.validateInput(
+        (cb) => rl.question("\nEnter your choice : ", cb),
+        (input) => validator.isValidMenuOption(input, 13),
+        (err, choice) => {
+            handleChoice(choice);
+        }
+    );
 }
 
 function handleChoice(choice) {
@@ -93,7 +101,11 @@ function handleChoice(choice) {
 
         default:
             console.log(chalk.red("Invalid choice"));
+
+            events.emit("operationFailed", "Invalid menu selection");
     }
+
     showMenu();
 }
+
 showMenu();
