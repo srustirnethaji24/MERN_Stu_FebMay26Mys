@@ -1,8 +1,10 @@
 const user = require("./user");
-function editProfile(r1,callback){
-    const CurrentUser = user.getCurrentUser();
-    if(!CurrentUser){
-        console.log("\n Create profile First\n");
+const chalk = require("chalk");
+
+function editProfile(rl,callback){
+    const currentUser = user.getcurrentUser();
+    if(!currentUser){
+        console.log("\n Create Profile First\n");
         return callback();
 
         
@@ -10,43 +12,38 @@ function editProfile(r1,callback){
     console.log("\n================================\n");
     console.log("1. Add Skill");
     console.log("2. Add Experience");
-    console.log("3. Add education");
-    r1.question("enter your choice :-",(choice)=>{
+    console.log("3. Add Education");
+    rl.question("Enter your choice :",(choice)=>{
         switch(choice){
             case "1":
-                r1.question("enter your skill",(skill)=>{
-                    CurrentUser.skills.push(skill);
-                    console.log("skill added sucessfully");
+                rl.question("Enter Your skill: ",(skill)=>{
+                    currentUser.skills.push(skill);
+                    console.log(chalk.green("Skill added sucessfully"));
                     callback();
                     
                 });
                 break;
             case "3":
-                r1.question("enter your education",(education)=>{
-                    CurrentUser.education.push(education);
-                    console.log("education added sucessfully");
+                rl.question("Enter Your Education:  ",(education)=>{
+                    currentUser.education.push(education);
+                    console.log(chalk.green("Education added sucessfully"));
                     callback();
                     
                 });
                 break;
             case "2":
-                r1.question("enter your education",(experience)=>{
-                    CurrentUser.experience.push(experience);
-                    console.log("education added sucessfully");
+                rl.question("Enter Your Experience: ",(experience)=>{
+                    currentUser.experience.push(experience);
+                    console.log(chalk.green("Experience added sucessfully"));
                     callback();
                 });
                 break; 
             default:
-                console.log("\ninvalid chice\n");
+                console.log(chalk.red("\nInvalid choice\n"));
                 callback();
                   
         }
     });
-    
-    
-    
-    
-
 }
 module.exports = {
     editProfile
