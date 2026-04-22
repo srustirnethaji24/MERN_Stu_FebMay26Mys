@@ -1,23 +1,26 @@
 const jwt = require("jsonwebtoken");
-const user = require("../models/User");
+const User = require("../models/User");
 
 // Auth middleware creations
 exports.protect = async(req,res,next) =>{
     try {
+        console.log("running 0 ");
+        
         let token;
         if (
             req.headers.authorization && 
             req.headers.authorization.startsWith("Bearer")
         ){
-            token = req.authorization.split(" ")[1];
+            token = req.headers.authorization.split(" ")[1];
         }
+        console.log("running 0 ");
 
         if (!token) {
             return res.status(401).json({
                 success: false,
                 message:"Not authorized, token missing",
             });
-
+        }
             // verify token
             const decoded = jwt.verify(token,process.env.JWT_SECRET);
 
@@ -31,13 +34,12 @@ exports.protect = async(req,res,next) =>{
             });
         }
         // Attach user to request 
-        req.userI = user;
+        req.user = user;
         next();
-    }
     } catch (error) {
         return res.status(401).json({
                 success: false,
-                message:"Inbalid of expired token",
+                message:"Invalid of expired token",
             });
     }
 };
