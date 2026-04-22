@@ -1,5 +1,5 @@
 const express = require("express");
-const router = express.router();
+const router = express.Router();
 
 const {protect} = require("../middleware/auth.middleware");
 
@@ -7,3 +7,5 @@ const {protect} = require("../middleware/auth.middleware");
 router.post("/",protect,(req,res)=>{
     res.send("Create boking");
 });
+
+module.exports = router;
