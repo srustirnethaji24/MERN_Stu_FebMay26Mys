@@ -1,10 +1,10 @@
 const express = require("express");
-const router = express.router();
+const router = express.Router();
 
 const {protect} = require("../middleware/auth.middleware");
 const {authorize} = require("../middleware/role.middleware");
 
-// Public route 
+//Public route
 router.get("/",(req,res)=>{
     res.send("Get Movies");
 });
