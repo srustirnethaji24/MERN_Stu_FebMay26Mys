@@ -15,7 +15,7 @@ app.use("/api/bookings",bookingRoutes);
 app.get('/',(req,res) => {
     res.status(200).json({ 
     success:true,
-    message: "Movie API Is Running..."
+    message: "Movie booking API Is Running..."
 });
 });
 
