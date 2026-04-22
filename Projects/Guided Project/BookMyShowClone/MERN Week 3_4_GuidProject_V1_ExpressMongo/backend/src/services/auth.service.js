@@ -23,7 +23,7 @@ exports.verifyOTP = async({email,otp})=>{
     const record = await OTP.findOne({email}).select("+otp");
 
     if (!record) {
-        throw new console.error("OTP expired or not found");        
+        throw new Error("OTP expired or not found");        
     }
 
     const isMatch = await bcrypt.compare(otp,record.otp);
@@ -31,9 +31,9 @@ exports.verifyOTP = async({email,otp})=>{
     if (!isMatch) {
         record.attempts +=1;
         await record.save();
-        throw new error("Invalid OTP");
+        throw new Error("Invalid OTP");
     }
-    await User.updateOne({email},{isVerified});
+    await User.updateOne({email},{isVerified:true});
     return true;
 };
 
@@ -56,7 +56,7 @@ exports.loginUser = async({email,password})=>{
     const token = jwt.sign(
         {id:user._id,role:user.role},
         process.env.JWT_SECRET,
-        {expiresIn:"Id"}
+        {expiresIn:"1d"}
     );
 
     return{
