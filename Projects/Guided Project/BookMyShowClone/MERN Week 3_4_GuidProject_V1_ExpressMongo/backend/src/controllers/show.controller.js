@@ -7,7 +7,7 @@ exports.createShow = async (req,res,next) => {
         res.status(201).json({
             success:true,
             message:"Show Created Successfully",
-            data:shows,
+            data:show,
         });
     }
     catch(error){
