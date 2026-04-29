@@ -1,8 +1,8 @@
 const bookingService = require("../services/booking.service");
 
-//  Created booking
+// Create booking
 exports.createBooking = async (req,res,next) => {
-    try {
+    try{
         const booking = await bookingService.createBooking(
             req.user._id,
             req.body
@@ -12,35 +12,38 @@ exports.createBooking = async (req,res,next) => {
             message:"Booking confirmed.",
             data:booking,
         });
-    } catch (error) {
+    }
+    catch(error){
         next(error);
     }
 };
 
-//  Get bookings
+// Get bookings
 exports.getMyBookings = async (req,res,next) => {
-    try {
+    try{
         const bookings = await bookingService.getUserBookings(req.user._id);
-        res.status(201).json({
+        res.status(200).json({
             success:true,
             message:"Bookings fetched.",
             data:bookings,
         });
-    } catch(error){
+    }
+    catch(error){
         next(error);
     }
 };
 
-//  Cancel bookings
+// cancel booking
 exports.cancelBooking = async (req,res,next) => {
-    try {
-        const bookings = await bookingService.cancelBooking(req.params.id,req.user._id);
-        res.status(201).json({
+    try{
+        await bookingService.cancelBooking(req.params.id,req.user._id);
+        res.status(200).json({
             success:true,
             message:"Bookings cancelled.",
-            data:bookings,
+           
         });
-    } catch(error){
+    }
+    catch(error){
         next(error);
     }
 };
