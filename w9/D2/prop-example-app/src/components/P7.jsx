@@ -18,7 +18,7 @@ function SkillsList({ skills }){
 }
 export function ObjectsAndArrayProps() {
     const user = {
-        name: 'Srusti',
+        name: 'Srusti ',
         role: 'Developer',
     };
     const skills = ['React', 'TailwindCSS', 'Vite'];
