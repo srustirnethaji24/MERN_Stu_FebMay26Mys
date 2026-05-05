@@ -1,7 +1,7 @@
 const backToTopBtn = document.getElementById("back-to-top");
 
 // Show / Hide button on scroll
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll",  () => {
   if (window.scrollY > 300) {
     backToTopBtn.classList.remove("hidden");
     backToTopBtn.classList.add("show");

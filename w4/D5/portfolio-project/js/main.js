@@ -6,5 +6,5 @@ document.addEventListener("DOMContentLoaded", function () {
     typeEffect();
     initProjectSearch();
     //initModal();
-    initContactValidation();
+    initContactValidation() ;
 })

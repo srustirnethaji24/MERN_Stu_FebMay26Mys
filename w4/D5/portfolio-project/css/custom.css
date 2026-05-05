@@ -39,7 +39,7 @@ button {
   z-index: 1000;
 }
 .nav-link.active {
-  color: #2563eb; /* Tailwind blue-600 */
+  color: #2563eb; 
   border-bottom: 2px solid #2563eb;
 }
 #back-to-top {

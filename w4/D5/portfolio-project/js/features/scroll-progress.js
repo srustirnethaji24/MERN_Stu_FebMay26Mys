@@ -7,4 +7,4 @@ window.addEventListener('scroll', () => {
 
   document.getElementById('progress-bar').style.width =
     scrollPercent + '%';
-});
+}) ;
