@@ -1,69 +1,128 @@
-function renderProjects(){
+// const searchInput = document.getElementById("project-search");
 
-    const projectContainer = document.getElementById("projects-container");
+// // ✅ Main render function
+// function renderProjects(data) {
+//     const projectsContainer = document.getElementById("projects-container");
 
-    if(!projectContainer){
-        console.log("Projects Container Not Found");
-        return;
+//     if (!projectsContainer) {
+//         console.log("Project container not found");
+//         return;
+//     }
+
+//     projectsContainer.innerHTML = "";
+
+//     data.forEach(function (project) {
+//         const card = document.createElement("div");
+//         card.className = "p-8 text-center bg-white rounded-3xl shadow-lg";
+
+//         // Icon
+//         const iconBox = document.createElement("div");
+//         iconBox.className = "w-20 h-20 mx-auto mb-4 flex items-center justify-center bg-blue-500 rounded-full";
+
+//         const iconText = document.createElement("span");
+//         iconText.className = "text-2xl text-white font-bold";
+//         iconText.textContent = project.shortLabel;
+
+//         iconBox.appendChild(iconText);
+
+//         // Project Name
+//         const projectName = document.createElement("h2");
+//         projectName.className = "text-xl font-bold mb-2";
+//         projectName.textContent = project.name;
+
+//         // Category
+//         const projectCategory = document.createElement("p");
+//         projectCategory.className = "text-sm text-gray-500";
+//         projectCategory.textContent = project.category;
+
+//         // Description
+//         const projectDescription = document.createElement("p");
+//         projectDescription.className = "text-sm";
+//         projectDescription.textContent = project.description;
+
+//         // Append
+//         card.appendChild(iconBox);
+//         card.appendChild(projectName);
+//         card.appendChild(projectCategory);
+//         card.appendChild(projectDescription);
+
+//         projectsContainer.appendChild(card);
+//     });
+// }
+
+// // ✅ Initial render
+// renderProjects(projectsData);
+
+// // ✅ Live Search Filtering
+// searchInput.addEventListener("input", function () {
+//     const searchText = searchInput.value.toLowerCase();
+
+//     const filteredProjects = projectsData.filter(function (project) {
+//         return (
+//             project.name.toLowerCase().includes(searchText) ||
+//             project.category.toLowerCase().includes(searchText) ||
+//             project.description.toLowerCase().includes(searchText)
+//         );
+//     });
+
+//     renderProjects(filteredProjects);
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const container = document.getElementById("projects-container");
+  const searchInput = document.getElementById("project-search");
+
+  console.log("✅ Project JS Loaded");
+
+  if (!container) {
+    console.error("❌ Container not found");
+    return;
+  }
+
+  if (typeof projectsData === "undefined") {
+    console.error("❌ projectsData not found");
+    return;
+  }
+
+  function renderProjects(data) {
+    container.innerHTML = "";
+
+    if (!data.length) {
+      container.innerHTML = "<p>No projects found</p>";
+      return;
     }
 
-    projectContainer.innerHTML = "";
+    data.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "bg-white p-6 rounded shadow";
 
-    projectsData.forEach(function(project){
+      card.innerHTML = `
+        <h3 class="text-xl font-bold">${p.name}</h3>
+        <p class="text-sm text-gray-500">${p.category}</p>
+        <p>${p.description}</p>
+        <p class="text-blue-500 text-sm">${p.technologies.join(", ")}</p>
+      `;
 
-        // Create outer card
-        const card = document.createElement("div");
-        card.className = "p-8 text-center bg-yellow-800 rounded-4xl shadow-lg";
-
-        // Project Name
-        const projectName = document.createElement("h3");
-        projectName.className = "text-xl font-bold mb-2";
-        projectName.textContent = project.name;
-
-        // Project Category
-        const projectCategory = document.createElement("p");
-        projectCategory.className = "text-sm font-semibold";
-        projectCategory.textContent = project.category;
-
-        // Project technologies
-        const projectTechnologies = document.createElement("p");
-        projectTechnologies.className = "text-sm";
-        projectTechnologies.textContent = project.technologies;
-
-        // Project Status
-        const projectStatus = document.createElement("p");
-        projectStatus.className = "text-sm";
-        projectStatus.textContent = project.status;
-
-        // Project LiveDemo
-        const projectLiveDemo = document.createElement("p");
-        projectLiveDemo.className = "text-sm";
-        projectLiveDemo.textContent = project.liveDemo;
-
-        // Project Github
-        const projectGithub = document.createElement("p");
-        projectGithub.className = "text-sm";
-        projectGithub.textContent = project.github;
-
-        // Project Description
-        const projectDescription = document.createElement("p");
-        projectDescription.className = "text-sm";
-        projectDescription.textContent = project.description;
-
-
-        // Add elements to card
-        card.appendChild(projectName);
-        card.appendChild(projectCategory);
-        card.appendChild(projectDescription);
-        card.appendChild(projectTechnologies);
-        card.appendChild(projectStatus);
-        card.appendChild(projectLiveDemo);
-        card.appendChild(projectGithub);
-
-        // Add card to container
-        projectContainer.appendChild(card);
-
+      container.appendChild(card);
     });
+  }
 
-    console.log("Projects render successfully")
-}
+  renderProjects(projectsData);
+
+  if (searchInput) {
+    searchInput.addEventListener("input", e => {
+      const value = e.target.value.toLowerCase();
+
+      const filtered = projectsData.filter(p =>
+        p.name.toLowerCase().includes(value) ||
+        p.description.toLowerCase().includes(value) ||
+        p.category.toLowerCase().includes(value) ||
+        p.technologies.join(" ").toLowerCase().includes(value)
+      );
+
+      renderProjects(filtered);
+    });
+  }
+
+});

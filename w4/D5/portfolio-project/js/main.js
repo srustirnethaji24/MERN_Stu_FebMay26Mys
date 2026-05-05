@@ -1,8 +1,10 @@
-document.addEventListener("DOMContentLoaded",function(){
+document.addEventListener("DOMContentLoaded", function () {
     //Render skill
-    renderSkills();
-    initModal();
-    initContactValidation();
+    //renderSkills(skills);
+    renderFilters(skills);
     initThemeToggle();
-    renderProjects();
+    typeEffect();
+    initProjectSearch();
+    //initModal();
+    initContactValidation();
 })
