@@ -2,6 +2,7 @@
 // Context : Lets you share the date b/w components
 //  Without passing props manually through every level
 import { createContext, use, useContext, useState } from "react";
+import { useDocumentTitle } from "./P2";
 // Why to useContext?
 // 1. Helps us avoid prop drilling
 // 2. Useful for shared values:
