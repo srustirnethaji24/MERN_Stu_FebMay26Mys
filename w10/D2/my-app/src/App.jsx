@@ -1,5 +1,6 @@
 import './App.css'
 import { UseContextIntro } from "./components/P1";
+import { useDocumentTitle } from './components/P2';
 import { CustomHooksIntro} from "./components/P2";
 import{ UseRefIntro } from "./components/P3";
 function App() {
