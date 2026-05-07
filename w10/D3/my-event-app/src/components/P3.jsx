@@ -1,6 +1,6 @@
 // Passing arguments to Event Handlers
 import {useState} from "react";
-export function PassingArguments(){
+export function PassingArguments() {
     const [message, setMessage] =  useState('No message yet');
     // Event handler function
     const handleClick = (msg) => {
