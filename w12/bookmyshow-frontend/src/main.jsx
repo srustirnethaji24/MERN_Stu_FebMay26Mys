@@ -1,6 +1,5 @@
 // src/main.jsx
 
-
 /*
 =========================================================
 SPRINT 2 – AUTH PROVIDER INTEGRATION
@@ -47,25 +46,17 @@ is available throughout the app.
 =========================================================
 */
 
-
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 
-
 import App from "./App";
 import "./index.css";
 
-
 import { AuthProvider } from "./context/AuthContext";
 
-
-ReactDOM.createRoot(
-  document.getElementById("root")
-).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-
-
     {/*
     =====================================================
     AUTH PROVIDER
@@ -96,25 +87,13 @@ ReactDOM.createRoot(
     =====================================================
     */}
 
-
     <AuthProvider>
-
-
       <BrowserRouter>
-
-
         <App />
-
-
       </BrowserRouter>
-
-
     </AuthProvider>
-
-
-  </React.StrictMode>
+  </React.StrictMode>,
 );
-
 
 /*
 =========================================================
