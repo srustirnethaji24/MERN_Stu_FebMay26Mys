@@ -1,23 +1,27 @@
 // src/components/ProtectedRoute.jsx
 
+
 /*
 =========================================================
-SPRINT 1 – SHARED INFRASTRUCTURE
+SPRINT 2 – REAL ROUTE PROTECTION
 
 
 TOPICS COVERED:
 
 
 ✓ Protected Routes
-✓ Conditional Rendering
+✓ Context API
+✓ Custom Hooks
 ✓ Navigate
 ✓ Role-Based Authorization
+✓ Authentication vs Authorization
 
 
 WHY THIS COMPONENT?
 
 
-Certain pages should only be accessible to authenticated users.
+Certain pages should only be accessible
+to authenticated users.
 
 
 Examples:
@@ -33,138 +37,131 @@ Admin Dashboard
 Admin Users
 
 
-Sprint 1 uses mock values.
+Sprint 1:
 
 
-Real JWT authentication
-arrives in Sprint 2.
+Mock Authentication
+
+
+Sprint 2:
+
+
+JWT
+↓
+AuthContext
+↓
+Real Authorization
+
+
+IMPLEMENTATION NOTES
+
+
+• Uses useAuth() from AuthContext.
+• Redirects guests to Login.
+• Redirects unauthorized roles Home.
+• Keeps route protection centralized.
+
+
+KEY TAKEAWAYS
+
+
+Authentication:
+Who are you?
+
+
+Authorization:
+What are you allowed to access?
 
 
 =========================================================
 */
 
 
-import {
+import { Navigate } from "react-router-dom";
 
 
-    Navigate
+import { useAuth } from "../context/AuthContext";
 
 
-} from "react-router-dom";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 
-export default function ProtectedRoute({
+export default function ProtectedRoute({ children, requiredRole }) {
+  /*
+  =====================================================
+  AUTHENTICATION STATE
 
 
-    children,
+  Retrieved from AuthContext.
 
 
-    requiredRole
+  =====================================================
+  */
 
 
-}) {
+  // const { isAuthenticated, user } = useAuth();
 
 
-    /*
-    =====================================================
-    MOCK AUTHENTICATION
-  
-  
-    Sprint 2 replaces these values
-    with Context API.
-  
-  
-    =====================================================
-    */
+  const { isAuthenticated, user, loading } = useAuth();
 
 
-    const isAuthenticated = true;
+  /*
+  =====================================================
+  AUTHENTICATION CHECK
 
 
-    const userRole = "admin";
+  Guest users must login first.
 
 
-    /*
-    =====================================================
-    AUTH CHECK
-    =====================================================
-    */
+  =====================================================
+  */
 
 
-    if (!isAuthenticated) {
+  if (loading) {
+    return <LoadingSpinner />;
+  }
 
 
-        return (
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
 
 
-            <Navigate
+  /*
+  =====================================================
+  AUTHORIZATION CHECK
 
 
-                to="/login"
+  Some routes require a specific role.
 
 
-                replace
+  Example:
 
 
-            />
+  Admin Dashboard
+  ↓
+  role === "admin"
 
 
-        );
+  =====================================================
+  */
 
 
-    }
+  if (requiredRole && user?.role !== requiredRole) {
+    return <Navigate to="/" replace />;
+  }
 
 
-    /*
-    =====================================================
-    ROLE CHECK
-    =====================================================
-    */
+  /*
+  =====================================================
+  ACCESS GRANTED
 
 
-    if (
+  =====================================================
+  */
 
 
-        requiredRole &&
-
-
-        requiredRole !== userRole
-
-
-    ) {
-
-
-        return (
-
-
-            <Navigate
-
-
-                to="/"
-
-
-                replace
-
-
-            />
-
-
-        );
-
-
-    }
-
-
-    /*
-    =====================================================
-    ACCESS GRANTED
-    =====================================================
-    */
-
-
-    return children;
-
-
+  return children;
 }
 
 
@@ -173,28 +170,86 @@ export default function ProtectedRoute({
 FLOW
 
 
+Guest User
+
+
 Protected Route
 ↓
 Authenticated?
 ↓
-No → Login
+No
+↓
+Redirect → /login
 
 
+
+
+Authenticated User
+
+
+Protected Route
+↓
+Authenticated?
+↓
 Yes
 ↓
-Role Needed?
+Role Required?
 ↓
-No → Allow
+No
+↓
+Allow Access
 
 
+
+
+Admin Route
+
+
+Protected Route
+↓
+Authenticated?
+↓
+Yes
+↓
+Role Required?
+↓
 Yes
 ↓
 Role Matches?
 ↓
-No → Home
-
-
+No → Redirect Home
+↓
 Yes → Render Page
+
+
+=========================================================
+
+
+AUTHENTICATION VS AUTHORIZATION
+
+
+Authentication
+
+
+"Who are you?"
+
+
+Example:
+Logged In?
+
+
+
+
+Authorization
+
+
+"What can you access?"
+
+
+Example:
+Admin Only?
+
+
 
 
 =========================================================
@@ -203,17 +258,41 @@ Yes → Render Page
 KEY TAKEAWAYS
 
 
-1. Route protection centralizes logic.
+1. Route protection should be centralized.
 
 
-2. Authorization is different from
-   authentication.
+2. Authentication and Authorization
+   are separate concerns.
 
 
-3. Mock values simplify Sprint 1.
+3. Context eliminates mock values.
 
 
-4. Sprint 2 replaces this with JWT.
+4. Logout instantly revokes access.
+
+
+=========================================================
+
+
+VERIFICATION
+
+
+✓ Guest users redirected to Login
+
+
+✓ Logged-in users access Bookings
+
+
+✓ Customers blocked from Admin pages
+
+
+✓ Admins access Admin routes
+
+
+✓ Refresh preserves access
+
+
+✓ Logout revokes access
 
 
 =========================================================
