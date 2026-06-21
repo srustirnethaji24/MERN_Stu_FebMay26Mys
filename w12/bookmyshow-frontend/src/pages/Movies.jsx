@@ -1,149 +1,161 @@
 // src/pages/Movies.jsx
 
 
-/*
-=========================================================
-SPRINT 1 – MOVIES PAGE
+import { useEffect, useState } from "react";
 
 
-TOPICS COVERED:
+import { useDispatch, useSelector } from "react-redux";
 
 
-✓ Rendering Lists
-✓ map()
-✓ Reusable Components
+import MovieCard from "../components/MovieCard";
+import Pagination from "../components/Pagination";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 
-WHY THIS COMPONENT?
-
-
-This page introduces the concept
-of movie discovery.
-
-
-Sprint 1:
-
-
-Static Data
-
-
-Sprint 3:
-
-
-Redux Toolkit
-↓
-API Integration
-↓
-Search
-↓
-Filters
-↓
-Pagination
-
-
-=========================================================
-*/
-
-
-const movies = [
-    {
-        id: 1,
-        title: "Interstellar",
-        genre: "Sci-Fi",
-    },
-
-
-    {
-        id: 2,
-        title: "Inception",
-        genre: "Thriller",
-    },
-
-
-    {
-        id: 3,
-        title: "Dune",
-        genre: "Sci-Fi",
-    },
-];
+import { fetchMovies } from "../redux/movies/moviesSlice";
 
 
 export default function Movies() {
-    return (
-        <section>
-            <h1>Movies</h1>
+  const dispatch = useDispatch();
 
 
-            <p>Explore currently available movies.</p>
+  const { movies, loading, error, pagination } = useSelector(
+    (state) => state.movies,
+  );
 
 
-            <div style={styles.grid}>
-                {movies.map((movie) => (
-                    <MovieCard key={movie.id} movie={movie} />
-                ))}
-            </div>
-        </section>
+  const [search, setSearch] = useState("");
+
+
+  const [genre, setGenre] = useState("");
+
+
+  const [rating, setRating] = useState("");
+
+
+  useEffect(() => {
+    dispatch(
+      fetchMovies({
+        page: pagination.page,
+        search,
+        genre,
+        rating,
+      }),
     );
-}
+  }, [dispatch, pagination.page, search, genre, rating]);
 
 
-function MovieCard({ movie }) {
-    return (
-        <div style={styles.card}>
-            <h3>{movie.title}</h3>
-
-
-            <p>Genre: {movie.genre}</p>
-        </div>
+  function handlePageChange(page) {
+    dispatch(
+      fetchMovies({
+        page,
+        search,
+        genre,
+        rating,
+      }),
     );
+  }
+
+
+  return (
+    <section>
+      <h1>Movies</h1>
+
+
+      <p>Discover and explore movies.</p>
+
+
+      <div style={styles.filters}>
+        <input
+          type="text"
+          placeholder="Search title"
+          value={search}
+          onChange={(event) => setSearch(event.target.value)}
+        />
+
+
+        <select
+          value={genre}
+          onChange={(event) => setGenre(event.target.value)}
+        >
+          <option value="">All Genres</option>
+
+
+          <option value="Action">Action</option>
+
+
+          <option value="Comedy">Comedy</option>
+
+
+          <option value="Sci-Fi">Sci-Fi</option>
+        </select>
+
+
+        <select
+          value={rating}
+          onChange={(event) => setRating(event.target.value)}
+        >
+          <option value="">All Ratings</option>
+
+
+          <option value="4">4+</option>
+
+
+          <option value="4.5">4.5+</option>
+
+
+          <option value="4.8">4.8+</option>
+        </select>
+      </div>
+
+
+      {loading && <LoadingSpinner />}
+
+
+      {error && <p style={styles.error}>{error}</p>}
+
+
+      {!loading && !error && movies.length === 0 && <p>No movies found.</p>}
+
+
+      {!loading && !error && movies.length > 0 && (
+        <>
+          <div style={styles.grid}>
+            {movies.map((movie) => (
+              <MovieCard key={movie._id} movie={movie} />
+            ))}
+          </div>
+
+
+          <Pagination
+            currentPage={pagination.page}
+            totalPages={Math.ceil(pagination.total / pagination.limit)}
+            onPageChange={handlePageChange}
+          />
+        </>
+      )}
+    </section>
+  );
 }
 
 
 const styles = {
-    grid: {
-        marginTop: "30px",
+  filters: {
+    display: "flex",
+    gap: "15px",
+    flexWrap: "wrap",
+    margin: "25px 0",
+  },
 
 
-        display: "grid",
+  grid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+    gap: "20px",
+  },
 
 
-        gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-
-
-        gap: "20px",
-    },
-
-
-    card: {
-        background: "#fff",
-
-
-        border: "1px solid #ddd",
-
-
-        padding: "20px",
-
-
-        borderRadius: "6px",
-    },
+  error: {
+    color: "red",
+  },
 };
-
-
-/*
-=========================================================
-KEY TAKEAWAYS
-
-
-1. Arrays drive the UI.
-
-
-2. map() is fundamental in React.
-
-
-3. Static data evolves naturally
-   into API-driven data.
-
-
-=========================================================
-*/
-
