@@ -1,12 +1,14 @@
 // src\middleware\error.middleware.js
 const logger = require("../utils/logger");
 
-
 module.exports = (err, req, res, next) => {
   console.error("ERROR:", err.message);
 
+  logger.error(err.message);
+
   let statusCode = err.statusCode || 500;
-  let message = logger.error(err.message)|| "Internal Server Error"; //err.message || "Internal Server Error";
+
+  let message = err.message || "Internal Server Error";
 
   // Mongoose Validation Error
   if (err.name === "ValidationError") {
